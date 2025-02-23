@@ -3,7 +3,7 @@ package br.com.fintech.resorce;
 // import bibliotecas
 import java.util.Scanner;
 
-public class resorceChat {
+public class ResorceChat {
     public static String lineResorc() {
         return "********************************";
     }
@@ -13,6 +13,6 @@ public class resorceChat {
     }
 
     public static void pause() {
-        
+
     }
 }
