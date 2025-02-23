@@ -1,15 +1,27 @@
+// import modulos
+import br.com.fintech.modules.meta;
+import br.com.fintech.modules.conta;
+import br.com.fintech.resorce.resorceChat;
+
+// import bibliotecas
 import java.util.Scanner;
 
-public class main {
+import static br.com.fintech.modules.conta.*;
+
+
+public class core {
     // main function
     public static void main(String[] args) {
         // Coleta o nome do usuário
         Scanner vw = new Scanner(System.in);
-        System.out.print("Qual é o seu nome? ");
+        System.out.print("Qual é o seu nome? " + resorceChat.breakLineResorc());
         String userName = vw.nextLine();
+        conta.setNome(userName);
 
         // Boas vindas
-        System.out.println("\nSeja muito bem-vindo " + userName + "!");
+        System.out.println(resorceChat.lineResorc() + resorceChat.breakLineResorc());
+        System.out.println( resorceChat.breakLineResorc() + "Seja muito bem-vindo " + getNome() + "!");
+
 
         // Variável para armazenar a opção
         String option;
@@ -46,6 +58,7 @@ public class main {
         vw.close();
     }
 
+
     // verifica se é ou nn inteiro
     public static boolean isInteger(String str) {
         try {
@@ -56,6 +69,7 @@ public class main {
             return false;
         }
     }
+
 
     // ativa as opções
     private static void functions(int choice) {
