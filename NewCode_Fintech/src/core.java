@@ -81,7 +81,7 @@ public class core {
                 System.out.println("Remover valor!\n");
                 break;
             case 3:
-                System.out.println("Consultar saldo!\n");
+                conta.showAccount();
                 break;
             case 4:
                 System.out.println("Consultar meta!\n");

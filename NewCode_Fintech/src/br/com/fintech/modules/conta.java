@@ -10,7 +10,7 @@ public class conta {
     private static String nome;
 
     // apresentaçao das contas
-    void showAccount() {
+    public static void showAccount() {
         System.out.println(resorceChat.lineResorc() + resorceChat.breakLineResorc());
         System.out.println("Nome: " + getNome());
         System.out.println("Saldo: " + getSaldo());
@@ -19,7 +19,7 @@ public class conta {
 
 
     // setters
-    public static void setNome(String n) { this.nome = n; }
+    public static void setNome(String n) { nome = n; }
     public void setSaldo(double saldo) { this.saldo = saldo; }
 
     // getters
