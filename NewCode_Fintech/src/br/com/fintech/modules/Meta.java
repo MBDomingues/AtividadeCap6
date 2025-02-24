@@ -2,7 +2,6 @@
 package br.com.fintech.modules;
 
 // import bibliotecas
-import java.util.Scanner;
 
 //import resorce
 import br.com.fintech.resorce.ResorceChat;
@@ -41,17 +40,12 @@ public class Meta extends Conta {
     }
 
     //adicionar meta
-    public static void addMeta() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Atribua um nome para a sua meta:");
-        nomeMeta = sc.nextLine();
-        System.out.println("Informe a data final para atingir a meta:");
-        mesAnoMetaFinal = sc.nextLine();
-        System.out.println("Informe o quanto deseja alcançar");
-        valorMeta = sc.nextDouble();
-    
-        // fechar scanner
-        sc.close();
+    public static void addMeta(String nomeMeta, String mesAnoMetaFinal, double valorMeta) {
+        Meta.nomeMeta = nomeMeta;
+        Meta.mesAnoMetaFinal = mesAnoMetaFinal;
+        Meta.valorMeta = valorMeta;
+        System.out.println("O saldo atual da sua meta é de: " + saldoInvstimento);
+
     }
 
     // adionar investimento
