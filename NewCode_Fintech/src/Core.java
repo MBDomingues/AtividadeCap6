@@ -55,6 +55,9 @@ public class Core {
             }
 
         } while (running);
+
+        // fechar scanner
+        vw.close();
     }
 
 
@@ -81,12 +84,12 @@ public class Core {
         // switch das opções
         switch (choice) {
             case 1:
-                System.out.println("Quanto deseja adcicionar ?" + ResorceChat.breakLineResorc());
+                System.out.println("Quanto deseja adcicionar ?");
                 double valorDeposito = sc.nextDouble();
                 Depositar.depositarValor(valorDeposito);
                 break;
             case 2:
-                System.out.println("Quanto deseja sacar ?" + ResorceChat.breakLineResorc());
+                System.out.println("Quanto deseja sacar ?");
                 double x = sc.nextDouble();
                 Sacar.sacarValor(x);
                 break;
@@ -109,5 +112,8 @@ public class Core {
                 System.out.println("Valor selecionado inválido, digite apenas um dos 5 valores!" + ResorceChat.breakLineResorc());
                 break;
         }
+
+        // fechar o outro scanner
+        sc.close();
     }
 }
