@@ -22,7 +22,7 @@ public class Core {
 
         // Boas vindas
         System.out.println(ResorceChat.lineResorc() + ResorceChat.breakLineResorc());
-        System.out.println(ResorceChat.breakLineResorc() + "Seja muito bem-vindo " + Conta.getNome() + "!");
+        System.out.println("Seja muito bem-vindo " + Conta.getNome() + "!");
 
         String option;
 

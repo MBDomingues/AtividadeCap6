@@ -49,7 +49,8 @@ public class Meta extends Conta {
         mesAnoMetaFinal = sc.nextLine();
         System.out.println("Informe o quanto deseja alcançar");
         valorMeta = sc.nextDouble();
-
+    
+        // fechar scanner
         sc.close();
     }
 
