@@ -11,48 +11,67 @@ import java.util.Scanner;
 public class Core {
     // main function
     public static void main(String[] args) {
+        Login login = new Login();
+        Cadastro cadastro = new Cadastro();
         // inicar scanner
-        Scanner vw = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        //Login e Cadastro
-        do {
+        //‘Login’ e Cadastro
         int op;
-            System.out.println("Bem vindo!" + ResorceChat.breakLineResorc() + "1. Fazer login" + ResorceChat.breakLineResorc() + "Cadastrar");
-            op = vw.nextInt();
+        boolean logado = false;
+
+        do {
+            System.out.println("Bem vindo!" + ResorceChat.breakLineResorc() + "1. Fazer login" + ResorceChat.breakLineResorc() + "2. Cadastrar");
+            op = sc.nextInt();
 
             switch (op) {
+
                 case 1:
-                    Login login = new Login();
                     System.out.println("Digite seu email:");
-                    String email = vw.next();
-                    System.out.println("Digite seu senha:");
-                    String senha = vw.next();
-                    System.out.println("Bm vindo de volta!");
-                    break;
-                case 2:
-                    Cadastro cadastro = new Cadastro();
-                    System.out.println("Digite seu email:");
-                    String newEmail = vw.next();
+                    String email = sc.next();
                     System.out.println("Digite sua senha:");
-                    String newSenha = vw.next();
-                    System.out.println("Confirme a sua senha:");
-                    String confirmSenha = vw.next();
-                    System.out.println("Digite seu nome:");
-                    String nome = vw.next();
-                    System.out.println("Digite seu CPF:");
-                    String cpf = vw.next();
+                    String senha = sc.next();
 
-                    System.out.println("Bem vindo ao ...... Somos uma plataforma especializada, com o objtivo de te ajuda a alcançar suas metas!");
+                    login.setEmail(email);
+                    login.setSenha(senha);
+
+                    logado = true;
                     break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + op);
-            }
 
-        }while (true);
+                case 2:
+                    System.out.println("Digite seu email:");
+                    String newEmail = sc.next();
+                    System.out.println("Digite sua senha:");
+                    String newSenha = sc.next();
+                    System.out.println("Confirme sua senha:");
+                    String confirmaSenha = sc.next();
+                    System.out.println("Digite seu CPF");
+                    String cpf = sc.next();
+                    System.out.println("Digite seu Nome");
+                    String nome = sc.next();
+
+                    cadastro.setNewEmail(newEmail);
+                    cadastro.setNewSenha(newSenha);
+                    cadastro.setConfirmaSenha(confirmaSenha);
+                    cadastro.setCpf(cpf);
+                    cadastro.setNome(nome);
+
+                    logado = true;
+                    break;
+
+                default:
+                    System.out.println("Escolha uma opção valdia!");
+
+            }
+        }while (!logado);
+
+
+
+
+
 
 
         String option;
-
         // Verificador/analisador da opção selecionada
         boolean running = true;
         do {
@@ -67,7 +86,7 @@ public class Core {
             System.out.println("7. sair");
 
             // Coleta da escolha
-            option = vw.nextLine();
+            option = sc.nextLine();
 
             if (isInteger(option)) {
                 int choice = Integer.parseInt(option);
@@ -84,7 +103,7 @@ public class Core {
         } while (running);
 
         // fechar scanner
-        vw.close();
+        sc.close();
     }
 
 
@@ -103,8 +122,9 @@ public class Core {
 
     // ativa as opções
     private static void functions(int choice) {
-    // novo scanner
-    Scanner sc = new Scanner(System.in);
+        Meta meta = new Meta();
+        // novo scanner
+        Scanner sc = new Scanner(System.in);
         // switch das opções
         switch (choice) {
             case 1:
@@ -126,13 +146,15 @@ public class Core {
                 break;
             case 5:
                 System.out.println("Digite o nome para a meta");
-                String userName = sc.nextLine();
+                String userName = sc.next() + sc.nextLine();
                 System.out.println("Digite a data final para a meta:");
                 String data = sc.nextLine();
                 System.out.println("Digite o valor que deseja alcançar");
-                double valorDesejado = sc.nextDouble();
-                Meta.addMeta(userName, data, valorDesejado);
-
+                double valorDesejado;
+                valorDesejado = sc.nextDouble();
+                 meta.setNomeMeta(userName);
+                 meta.setMesAnoMetaFinal(data);
+                 meta.setValorMeta(valorDesejado);
                 break;
             case 6:
                 System.out.println("Digite o valor que deseja adicionar para a meta:");
