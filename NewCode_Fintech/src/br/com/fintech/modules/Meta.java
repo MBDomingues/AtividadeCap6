@@ -39,15 +39,6 @@ public class Meta extends Conta {
         }
     }
 
-    //adicionar meta
-    public static void addMeta(String nomeMeta, String mesAnoMetaFinal, double valorMeta) {
-        Meta.nomeMeta = nomeMeta;
-        Meta.mesAnoMetaFinal = mesAnoMetaFinal;
-        Meta.valorMeta = valorMeta;
-        System.out.println("O saldo atual da sua meta é de: " + saldoInvstimento);
-
-    }
-
     // adionar investimento
     public static void addInvestimento(double valorInvestimento) {
         // verificador valor saldo

@@ -9,12 +9,11 @@ import java.util.Scanner;
 
 
 public class Core {
+    static Scanner sc = new Scanner(System.in);
     // main function
     public static void main(String[] args) {
         Login login = new Login();
         Cadastro cadastro = new Cadastro();
-        // inicar scanner
-        Scanner sc = new Scanner(System.in);
 
         //‘Login’ e Cadastro
         int op;
@@ -68,11 +67,8 @@ public class Core {
 
 
 
-
-
-
-        String option;
         // Verificador/analisador da opção selecionada
+        String option;
         boolean running = true;
         do {
             // Acessar funcionalidades
@@ -86,7 +82,7 @@ public class Core {
             System.out.println("7. sair");
 
             // Coleta da escolha
-            option = sc.nextLine();
+            option = sc.next();
 
             if (isInteger(option)) {
                 int choice = Integer.parseInt(option);
@@ -102,8 +98,10 @@ public class Core {
 
         } while (running);
 
-        // fechar scanner
+        // fechar scanner da main
         sc.close();
+
+
     }
 
 
@@ -122,9 +120,10 @@ public class Core {
 
     // ativa as opções
     private static void functions(int choice) {
+
+        //Criando Objeto meta
         Meta meta = new Meta();
-        // novo scanner
-        Scanner sc = new Scanner(System.in);
+
         // switch das opções
         switch (choice) {
             case 1:
@@ -146,9 +145,9 @@ public class Core {
                 break;
             case 5:
                 System.out.println("Digite o nome para a meta");
-                String userName = sc.next() + sc.nextLine();
+                String userName = sc.next();
                 System.out.println("Digite a data final para a meta:");
-                String data = sc.nextLine();
+                String data = sc.next();
                 System.out.println("Digite o valor que deseja alcançar");
                 double valorDesejado;
                 valorDesejado = sc.nextDouble();
@@ -165,8 +164,7 @@ public class Core {
                 System.out.println("Valor selecionado inválido, digite apenas um dos 7 valores!" + ResorceChat.breakLineResorc());
                 break;
         }
-
-        // fechar o outro scanner
+        // fechar scanner das funções
         sc.close();
     }
 }
